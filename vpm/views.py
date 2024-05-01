@@ -11,6 +11,20 @@ from utility.common_functions import *
 
 
 class VendorProfile(APIView):
+
+
+    """
+    Use: To create new vendor with unique vendor_code
+
+
+    request body:
+    {
+            "name": "Anirudha",
+            "address": "Satara",
+            "contact_details":8600395045
+        }
+    """
+
     def post(self,request):
 
         vendor_profile = request.data
