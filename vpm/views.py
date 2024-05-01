@@ -15,6 +15,7 @@ class VendorProfile(APIView):
 
     """
     Use: To create new vendor with unique vendor_code
+    endpoint :{{base_url}}/api/vendors/
 
 
     request body:
@@ -46,6 +47,47 @@ class VendorProfile(APIView):
 
         Vendor.objects.create(name=vendor_name,address=vendor_address,contact_details=contact_details,
                             vendor_code=v_code)
+
+        return JsonResponse(
+                    vendor_profile,
+                    status=status.HTTP_200_OK,
+                )
+    
+    """
+    Use: To get all vendor list
+    endpoint :{{base_url}}/api/vendors/
+    """
+
+    def get(self,request):
+
+        vendor_obj = Vendor.objects.all()
+
+        vendor_list = [vend.json for vend in vendor_obj]
+        vendor_count = len(vendor_list)
+        all_vendors = {
+            "total_count":vendor_count,
+            "data":vendor_list
+        }
+
+        print(vendor_list)
+
+        return JsonResponse(
+                    all_vendors,
+                    status=status.HTTP_200_OK,
+                )
+
+    """
+    Use: To get specific vendor by vendor_code
+    endpoint : {{base_url}}/api/vendors/789YV/
+
+    """
+    
+    def get(self,request,vendor_id):
+
+        vendor_obj = Vendor.objects.get(vendor_code=vendor_id)
+        print(vendor_obj)
+
+        vendor_profile = vendor_obj.json
 
         return JsonResponse(
                     vendor_profile,
