@@ -1,1 +1,5 @@
 jsonKeyError = "json key error"
+profileCreated = "Vendor profile created!"
+profileUpdated = "Profile updated!"
+profileDeleted = "Profile deleted!"
+profileNotFound = "Profile not found!"
