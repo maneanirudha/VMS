@@ -12,7 +12,7 @@ from utility.common_functions import *
 
 """
 Use: To create new vendor with unique vendor_code
-endpoint :{{base_url}}/api/create-vendor/
+endpoint :{{base_url}}/api/vpm/create-vendor/
 
 
 request body:
@@ -48,7 +48,7 @@ def create_vendor(request):
 
 """
 Use: To get all vendor list
-endpoint :{{base_url}}/api/vendors/
+endpoint :{{base_url}}/api/vpm/vendors/
 """
 @api_view(['GET'])
 @authentication_classes([JWTAuthentication])
@@ -73,7 +73,7 @@ def get_all_vendors(request):
 
 """
 Use: To get specific vendor by vendor_code
-endpoint : {{base_url}}/api/get-vendor/789YV/
+endpoint : {{base_url}}/api/vpm/get-vendor/789YV/
 
 """
 @api_view(['GET'])
@@ -96,7 +96,7 @@ def get_vendor(request,vendor_id):
 
 """
 Use: To update specific vendor by vendor_code
-endpoint : {{base_url}}/api/update-vendor/789YV/
+endpoint : {{base_url}}/api/vpm/update-vendor/789YV/
 
 """
 @api_view(['PUT'])
@@ -130,7 +130,7 @@ def update_vendor(request,vendor_id):
 
 """
 Use: To delete specific vendor by vendor_code
-endpoint : {{base_url}}/api/delete-vendor/789YV/
+endpoint : {{base_url}}/api/vpm/delete-vendor/789YV/
 
 """
 @api_view(['DELETE'])
