@@ -124,3 +124,38 @@ def get_purchase_order_details(request,po_code):
                 purchase_order_obj,
                 status=status.HTTP_200_OK,
             )
+
+
+"""
+Use: To update specific purchase order by purchase order number
+endpoint : {{base_url}}/api/vpm/update-vendor/789YV/
+
+"""
+@api_view(['PUT'])
+@authentication_classes([JWTAuthentication])
+@permission_classes([IsAuthenticated])
+def update_purchase_order(request,po_number):
+
+    print(po_number)
+
+
+    try:
+        request_body = request.data
+        delivery_date = request_body['delivery_date']
+        status = request_body['status']
+        quality_rating = request_body['quality_rating']
+
+        print(delivery_date,status,quality_rating)
+    except KeyError:
+        return rokay(jsonKeyError)
+    
+    try:
+        po_obj = PurchaseOrder.objects.get(po_number=po_number)
+
+        po_obj.delivery_date = delivery_date
+        po_obj.status = status
+        po_obj.quality_rating = quality_rating
+        po_obj.save()
+        return rokay(purchaseOrderUpdated)
+    except PurchaseOrder.DoesNotExist:
+        return rerror(orderNotFound)
