@@ -21,7 +21,6 @@ class PurchaseOrder(models.Model):
         return{
             "id": self.pk,
             "po_number":self.po_number,
-            "vendor": self.vendor,
             "order_date":self.order_date,
             "delivery_date":self.delivery_date,
             "items":self.items,
