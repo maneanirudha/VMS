@@ -159,3 +159,20 @@ def update_purchase_order(request,po_number):
         return rokay(purchaseOrderUpdated)
     except PurchaseOrder.DoesNotExist:
         return rerror(orderNotFound)
+
+
+"""
+Use: To delete specific vendor by vendor_code
+endpoint : {{base_url}}/api/pot/delete-purchase-order/CZVYWRCW5KHB8M9NR149LRUQF/
+
+"""
+@api_view(['DELETE'])
+@authentication_classes([JWTAuthentication])
+@permission_classes([IsAuthenticated])
+def delete_purchase_order(request, po_number):
+    try:
+        vendor_obj = PurchaseOrder.objects.get(po_number=po_number)
+        vendor_obj.delete() 
+        return rokay(purchaseOrderDeleted)
+    except PurchaseOrder.DoesNotExist:
+        return rerror(orderNotFound)
