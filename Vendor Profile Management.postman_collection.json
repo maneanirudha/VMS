@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "e3495442-ad84-4560-a38c-9e787c86a6bb",
+		"name": "Vendor Profile Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "32676211"
+	},
+	"item": [
+		{
+			"name": "Request Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{base_url}}/api/token/"
+			},
+			"response": []
+		},
+		{
+			"name": "Create vendor",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n            \"name\": \"Chhaya\",\n            \"address\": \"Satara\",\n            \"contact_details\":8600395022\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{base_url}}/api/vpm/create-vendor/"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all vendor list",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": "{{base_url}}/api/vpm/vendors/"
+			},
+			"response": []
+		},
+		{
+			"name": "Get vendor details",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NjIxODc3LCJpYXQiOjE3MTQ1MzU0NzcsImp0aSI6Ijg5NTIzMTRhMDFhNTQ1MmM4MTZlNzgxZGI1YjRmMGQ0IiwidXNlcl9pZCI6MX0.7gbxDAO4dSfA55i-feydapkuA4qUoMRT84ihHt3KZrY",
+						"type": "text"
+					}
+				],
+				"url": "{{base_url}}/api/vpm/get-vendor/75JDY/"
+			},
+			"response": []
+		},
+		{
+			"name": "Update vendor",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NjIxODc3LCJpYXQiOjE3MTQ1MzU0NzcsImp0aSI6Ijg5NTIzMTRhMDFhNTQ1MmM4MTZlNzgxZGI1YjRmMGQ0IiwidXNlcl9pZCI6MX0.7gbxDAO4dSfA55i-feydapkuA4qUoMRT84ihHt3KZrY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n            \"name\": \"Anirudhha Mane\",\n            \"address\": \"Satara\",\n            \"contact_details\":8600395022\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{base_url}}/api/vpm/update-vendor/75JDY/"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete vendor",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NjIxODc3LCJpYXQiOjE3MTQ1MzU0NzcsImp0aSI6Ijg5NTIzMTRhMDFhNTQ1MmM4MTZlNzgxZGI1YjRmMGQ0IiwidXNlcl9pZCI6MX0.7gbxDAO4dSfA55i-feydapkuA4qUoMRT84ihHt3KZrY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n            \"name\": \"Anirudhha Mane\",\n            \"address\": \"Satara\",\n            \"contact_details\":8600395022\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{base_url}}/api/vpm/delete-vendor/789YV/"
+			},
+			"response": []
+		}
+	]
+}
